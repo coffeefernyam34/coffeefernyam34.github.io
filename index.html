@@ -65,7 +65,7 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
       <p>Equipped a John Deere Gator UTV with Pentair Hypro ProStop-E electric nozzle bodies for individual nozzle on/off control, driven by a machine vision camera. A color-segmentation model detects orange targets on the ground.</p>
       <p>Built the bridge between vision and spraying: detections arrive over USB at an Arduino Mega 2560, which turns them into nozzle commands and passes them over UART to an Arduino Uno fitted with a Seeed Studio CAN-BUS Shield v1.2 (MCP2515 / MCP2551). The Uno sends them as ISOBUS (CAN) messages that the ProStop-E system executes on the matching nozzle. Firmware written in C++.</p>
       <figure class="fig">
-        <img src="hardware-design.jpg" alt="Wiring diagram: tractor ISOBUS connector to DB9, Seeed CAN-BUS Shield on Arduino Uno, UART link to Arduino Mega 2560 with 4x4 keypad, USB from machine vision" loading="lazy">
+        <img src="d67e775c-bfe4-4ab8-a71d-3bff5e5fa1a3.png" alt="Wiring diagram: tractor ISOBUS connector to DB9, Seeed CAN-BUS Shield on Arduino Uno, UART link to Arduino Mega 2560 with 4x4 keypad, USB from machine vision" loading="lazy">
         <figcaption><b>Hardware design.</b> Tractor ISOBUS plug (CAN H / CAN L, battery power, ground) → DB9 → Seeed CAN-BUS Shield on Arduino Uno → UART (RX0 ↔ TX3) → Arduino Mega 2560 with 4×4 keypad for operator input → USB to the machine vision computer. Powered from the ISOBUS battery line through a barrel connector.</figcaption>
       </figure>
       <p>Field tests validated the vision-to-ProStop-E communication chain and measured how travel speed affects detection-to-spray latency.</p>
