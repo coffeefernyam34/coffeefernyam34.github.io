@@ -44,6 +44,11 @@ h2{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color
 .fig figcaption{font-size:14px;color:var(--muted)}
 .fig b{color:var(--fg)}
 .item p strong{font-weight:600;font-size:inherit;color:inherit}
+.field{margin:8px 0 0;display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:16px;align-items:center}
+.field video{width:100%;aspect-ratio:9/16;background:#000;display:block}
+.field figcaption{font-size:15px;color:var(--muted)}
+.field b{color:var(--fg)}
+@media (max-width:600px){.field{grid-template-columns:1fr}.field video{max-width:300px}}
 footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
 </style>
 </head>
@@ -80,6 +85,10 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
           <figcaption><b>Controller enclosure.</b> 3D-printed box housing the microcontrollers and CAN shield, with the 4×4 keypad on the lid, a DB9 CAN connector to the ISOBUS and a USB lead to the imaging system.</figcaption>
         </figure>
       </div>
+      <figure class="field">
+        <video src="field-debugging.mp4" controls muted playsinline loop preload="metadata"></video>
+        <figcaption><b>Field office.</b> Deadlines don't wait for a desk. Some days the office is the top of a sprayer, a tailgate or a rock at the edge of the field, writing and debugging code on the spot 😅</figcaption>
+      </figure>
     </article>
     <article class="item">
       <h3>See &amp; Spray precision sprayer</h3>
