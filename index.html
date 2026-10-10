@@ -50,6 +50,20 @@ h2{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color
 .field b{color:var(--fg)}
 @media (max-width:600px){.field{grid-template-columns:1fr}.field video{max-width:300px}}
 footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+.back{display:inline-block;color:var(--accent);text-decoration:none;font:500 13px var(--mono);letter-spacing:.06em}
+.back:hover,.back:focus-visible{text-decoration:underline;outline:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line);background:color-mix(in srgb,var(--fg) 3%,var(--bg));color:inherit;text-decoration:none;min-width:0;transition:border-color .15s,transform .15s}
+a.card:hover,a.card:focus-visible{border-color:var(--accent);transform:translateY(-2px);outline:none}
+.card .thumb{aspect-ratio:16/10;width:100%;object-fit:cover;display:block;background:#000;pointer-events:none}
+.card .thumb.empty{background:color-mix(in srgb,var(--accent) 14%,var(--bg))}
+.card .body{padding:14px 16px 16px;display:grid;gap:6px;align-content:start}
+.card h3{font:800 18px/1.2 var(--display);margin:0;text-wrap:balance}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card .more{font:500 13px var(--mono);color:var(--accent);margin-top:4px}
+.card .soon{font:500 12px var(--mono);color:var(--muted)}
+.page-title{font:800 clamp(28px,5vw,40px)/1.1 var(--display)!important;margin:0;text-wrap:balance}
+@media (prefers-reduced-motion:reduce){.card{transition:none}a.card:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -68,43 +82,40 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
 
   <section>
     <h2>Projects</h2>
-    <article class="item">
-      <h3>Machine vision + individual nozzle control on a John Deere UTV</h3>
-      <p>Equipped a John Deere Gator UTV with a spray implement fitted with Pentair Hypro ProStop-E electric nozzle bodies for individual nozzle on/off control, driven by a machine vision camera. A color-segmentation model detects orange targets on the ground.</p>
-      <p><strong>Built the bridge between the machine vision system and the implement:</strong> C++ firmware converts each machine vision detection into ISOBUS (CAN) messages that the ProStop-E implement controller executes on the matching nozzle.</p>
-      <p>Field tests validated the vision-to-ProStop-E communication chain and measured how travel speed affects detection-to-spray latency.</p>
-      <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>C++</span><span>Microcontrollers</span><span>Seeed CAN-BUS Shield</span><span>MCP2515</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>Implement control</span><span>John Deere UTV</span><span>Latency testing</span></div>
-      <video class="clip" src="pentair-test.mp4" controls muted playsinline loop preload="auto"></video>
-      <div class="figs">
-        <figure class="fig">
-          <img src="d67e775c-bfe4-4ab8-a71d-3bff5e5fa1a3.png" alt="Wiring diagram: tractor ISOBUS connector to DB9, Seeed CAN-BUS Shield on Arduino Uno, UART link to Arduino Mega 2560 with 4x4 keypad, USB from machine vision" loading="lazy">
-          <figcaption><b>Hardware design.</b> Tractor ISOBUS plug (CAN H / CAN L, battery power, ground) → DB9 → Seeed CAN-BUS Shield on Arduino Uno → UART (RX0 ↔ TX3) → Arduino Mega 2560 with 4×4 keypad for operator input → USB to the machine vision computer. Powered from the ISOBUS battery line through a barrel connector.</figcaption>
-        </figure>
-        <figure class="fig">
-          <img src="controller-box.jpg" alt="White 3D-printed controller box with a 4x4 keypad, a DB9 CAN connector and a USB cable to the imaging system" loading="lazy">
-          <figcaption><b>Controller enclosure.</b> 3D-printed box housing the microcontrollers and CAN shield, with the 4×4 keypad on the lid, a DB9 CAN connector to the ISOBUS and a USB lead to the imaging system.</figcaption>
-        </figure>
+    <div class="cards">
+      <a class="card" href="utv.html">
+        <video class="thumb" src="pentair-test.mp4#t=2.5" muted playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+        <div class="body">
+          <h3>Machine vision + individual nozzle control on a John Deere UTV</h3>
+          <p>Vision-triggered spot spraying with Hypro ProStop-E nozzles over ISOBUS.</p>
+          <span class="more">View project →</span>
+        </div>
+      </a>
+      <a class="card" href="case-ih-sprayer.html">
+        <video class="thumb" src="MicrosoftTeams-video%20(13).mp4#t=4" muted playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+        <div class="body">
+          <h3>See &amp; Spray on a CASE IH commercial sprayer</h3>
+          <p>Camera-based spot spraying across a 60-nozzle boom, commissioned in the field.</p>
+          <span class="more">View project →</span>
+        </div>
+      </a>
+      <div class="card">
+        <div class="thumb empty"></div>
+        <div class="body">
+          <h3>Ag drone: flight control &amp; sensors</h3>
+          <p>Flight control, camera and GPS-RTK integration over CAN, ISOBUS and UART.</p>
+          <span class="soon">Page coming soon</span>
+        </div>
       </div>
-      <figure class="field">
-        <video src="MicrosoftTeams-video%20(13).mp4" controls muted playsinline loop preload="metadata"></video>
-        <figcaption><b>Field office.</b> Sometimes last-minute surprises before an experiment force you to code, debug and troubleshoot right in the field: on top of a sprayer, on a rock… any place can be turned into an office 😅</figcaption>
-      </figure>
-    </article>
-    <article class="item">
-      <h3>See &amp; Spray precision sprayer</h3>
-      <p>Mounted and commissioned a camera-based spot-spraying system on a CASE IH commercial boom sprayer: cameras, industrial computers, CAN modules and rate-controller hardware across a 60-nozzle boom.</p>
-      <div class="tags"><span>ISOBUS</span><span>CAN bus</span><span>Machine vision</span><span>Raven</span><span>GPS RTK</span></div>
-    </article>
-    <article class="item">
-      <h3>Ag drone: flight control &amp; sensors</h3>
-      <p>Flight control, camera and GPS-RTK integration, with CAN, ISOBUS and UART links between system components.</p>
-      <div class="tags"><span>STM32</span><span>FreeRTOS</span><span>GPS RTK</span><span>UART</span></div>
-    </article>
-    <article class="item">
-      <h3>Qt HMI for real-time embedded systems</h3>
-      <p>Operator interface for a real-time embedded controller, built in Qt.</p>
-      <div class="tags"><span>Qt</span><span>C++</span><span>Embedded Linux</span></div>
-    </article>
+      <div class="card">
+        <div class="thumb empty"></div>
+        <div class="body">
+          <h3>Qt HMI for real-time embedded systems</h3>
+          <p>Operator interface for a real-time embedded controller, built in Qt.</p>
+          <span class="soon">Page coming soon</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section>
