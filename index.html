@@ -57,10 +57,11 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
   <section>
     <h2>Projects</h2>
     <article class="item">
-      <h3>Machine vision + individual nozzle control on a John Deere Gator</h3>
-      <p>Equipped a John Deere Gator utility vehicle with Pentair Hypro ProStop-E electric nozzle bodies for individual nozzle on/off control, driven by a machine vision camera. A simple color-segmentation model detects yellow targets on the ground and commands the corresponding ProStop-E nozzle.</p>
-      <p>Goal of the field tests: validate communication between the vision system and the ProStop-E nozzle control, and measure how travel speed affects detection-to-spray latency.</p>
-      <div class="tags"><span>Machine vision</span><span>Hypro ProStop-E</span><span>Individual nozzle control</span><span>CAN bus</span><span>Latency testing</span></div>
+      <h3>Machine vision + individual nozzle control on a John Deere UTV</h3>
+      <p>Equipped a John Deere Gator UTV with Pentair Hypro ProStop-E electric nozzle bodies for individual nozzle on/off control, driven by a machine vision camera. A color-segmentation model detects orange targets on the ground.</p>
+      <p>Built the bridge between vision and spraying: a C++ application on a Raspberry Pi with a CAN HAT converts each detection into ISOBUS messages (AgIsoStack++) that the ProStop-E system executes on the matching nozzle.</p>
+      <p>Field tests validated the vision-to-ProStop-E communication chain and measured how travel speed affects detection-to-spray latency.</p>
+      <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>AgIsoStack++</span><span>C++</span><span>Raspberry Pi</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>John Deere UTV</span><span>Latency testing</span></div>
       <video class="clip" src="pentair-test.mp4" controls muted playsinline loop preload="auto"></video>
     </article>
     <article class="item">
