@@ -37,6 +37,10 @@ h2{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color
 .skills b{display:block;font:800 15px var(--display);margin-bottom:2px}
 .skills p{margin:0;color:var(--muted);font-size:15px}
 .clip{width:100%;max-width:100%;aspect-ratio:720/406;display:block;margin-top:8px;background:#000}
+.fig{margin:8px 0 0;display:grid;gap:6px}
+.fig img{width:100%;max-width:100%;display:block;background:#fff;border:1px solid var(--line)}
+.fig figcaption{font-size:14px;color:var(--muted)}
+.fig b{color:var(--fg)}
 footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
 </style>
 </head>
@@ -59,9 +63,13 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
     <article class="item">
       <h3>Machine vision + individual nozzle control on a John Deere UTV</h3>
       <p>Equipped a John Deere Gator UTV with Pentair Hypro ProStop-E electric nozzle bodies for individual nozzle on/off control, driven by a machine vision camera. A color-segmentation model detects orange targets on the ground.</p>
-      <p>Built the bridge between vision and spraying: a C++ application on a Raspberry Pi with a CAN HAT converts each detection into ISOBUS messages (AgIsoStack++) that the ProStop-E system executes on the matching nozzle.</p>
+      <p>Built the bridge between vision and spraying: detections arrive over USB at an Arduino Mega 2560, which turns them into nozzle commands and passes them over UART to an Arduino Uno fitted with a Seeed Studio CAN-BUS Shield v1.2 (MCP2515 / MCP2551). The Uno sends them as ISOBUS (CAN) messages that the ProStop-E system executes on the matching nozzle. Firmware written in C++.</p>
+      <figure class="fig">
+        <img src="hardware-design.jpg" alt="Wiring diagram: tractor ISOBUS connector to DB9, Seeed CAN-BUS Shield on Arduino Uno, UART link to Arduino Mega 2560 with 4x4 keypad, USB from machine vision" loading="lazy">
+        <figcaption><b>Hardware design.</b> Tractor ISOBUS plug (CAN H / CAN L, battery power, ground) → DB9 → Seeed CAN-BUS Shield on Arduino Uno → UART (RX0 ↔ TX3) → Arduino Mega 2560 with 4×4 keypad for operator input → USB to the machine vision computer. Powered from the ISOBUS battery line through a barrel connector.</figcaption>
+      </figure>
       <p>Field tests validated the vision-to-ProStop-E communication chain and measured how travel speed affects detection-to-spray latency.</p>
-      <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>AgIsoStack++</span><span>C++</span><span>Raspberry Pi</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>John Deere UTV</span><span>Latency testing</span></div>
+      <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>C++</span><span>Arduino Mega 2560</span><span>Arduino Uno</span><span>Seeed CAN-BUS Shield</span><span>MCP2515</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>John Deere UTV</span><span>Latency testing</span></div>
       <video class="clip" src="pentair-test.mp4" controls muted playsinline loop preload="auto"></video>
     </article>
     <article class="item">
