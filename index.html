@@ -36,6 +36,7 @@ h2{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color
 .skills div{min-width:0}
 .skills b{display:block;font:800 15px var(--display);margin-bottom:2px}
 .skills p{margin:0;color:var(--muted);font-size:15px}
+.clip{width:100%;max-width:100%;aspect-ratio:720/406;display:block;margin-top:8px;background:#000}
 footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
 </style>
 </head>
@@ -56,10 +57,16 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
   <section>
     <h2>Projects</h2>
     <article class="item">
+      <h3>Machine vision + individual nozzle control on a John Deere Gator</h3>
+      <p>Equipped a John Deere Gator utility vehicle with a Pentair individual nozzle control system and a machine vision camera. A simple vision model detects yellow targets on the ground and triggers the matching nozzle.</p>
+      <p>Goal of the field tests: validate communication between the vision system and the Pentair controller, and measure how travel speed affects detection-to-spray latency.</p>
+      <div class="tags"><span>Machine vision</span><span>Pentair</span><span>Nozzle control</span><span>CAN bus</span><span>Latency testing</span></div>
+      <video class="clip" src="pentair-test.mp4" poster="pentair-test.jpg" controls muted playsinline loop preload="metadata"></video>
+    </article>
+    <article class="item">
       <h3>See &amp; Spray precision sprayer</h3>
       <p>Mounted and commissioned a camera-based spot-spraying system on a CASE IH commercial boom sprayer: cameras, industrial computers, CAN modules and rate-controller hardware across a 60-nozzle boom.</p>
       <div class="tags"><span>ISOBUS</span><span>CAN bus</span><span>Machine vision</span><span>Raven</span><span>GPS RTK</span></div>
-      <div class="video">▶ Field video goes here</div>
     </article>
     <article class="item">
       <h3>Ag drone: flight control &amp; sensors</h3>
