@@ -43,6 +43,7 @@ h2{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color
 .fig img{width:100%;max-width:100%;aspect-ratio:4/3;object-fit:contain;display:block;background:#fff;border:1px solid var(--line)}
 .fig figcaption{font-size:14px;color:var(--muted)}
 .fig b{color:var(--fg)}
+.item p strong{color:var(--fg)}
 footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
 </style>
 </head>
@@ -65,7 +66,7 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
     <article class="item">
       <h3>Machine vision + individual nozzle control on a John Deere UTV</h3>
       <p>Equipped a John Deere Gator UTV with a spray implement fitted with Pentair Hypro ProStop-E electric nozzle bodies for individual nozzle on/off control, driven by a machine vision camera. A color-segmentation model detects orange targets on the ground.</p>
-      <p>Built the bridge between vision and the implement: C++ firmware converts each machine vision detection into ISOBUS (CAN) messages that the ProStop-E implement controller executes on the matching nozzle.</p>
+      <p><strong>Built the bridge between the machine vision system and the implement:</strong> C++ firmware converts each machine vision detection into ISOBUS (CAN) messages that the ProStop-E implement controller executes on the matching nozzle.</p>
       <p>Field tests validated the vision-to-ProStop-E communication chain and measured how travel speed affects detection-to-spray latency.</p>
       <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>C++</span><span>Microcontrollers</span><span>Seeed CAN-BUS Shield</span><span>MCP2515</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>Implement control</span><span>John Deere UTV</span><span>Latency testing</span></div>
       <video class="clip" src="pentair-test.mp4" controls muted playsinline loop preload="auto"></video>
