@@ -63,7 +63,7 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
     <article class="item">
       <h3>Machine vision + individual nozzle control on a John Deere UTV</h3>
       <p>Equipped a John Deere Gator UTV with Pentair Hypro ProStop-E electric nozzle bodies for individual nozzle on/off control, driven by a machine vision camera. A color-segmentation model detects orange targets on the ground.</p>
-      <p>Built the bridge between vision and spraying: detections arrive over USB at an Arduino Mega 2560, which turns them into nozzle commands and passes them over UART to an Arduino Uno fitted with a Seeed Studio CAN-BUS Shield v1.2 (MCP2515 / MCP2551). The Uno sends them as ISOBUS (CAN) messages that the ProStop-E system executes on the matching nozzle. Firmware written in C++.</p>
+      <p>Built the bridge between vision and spraying: C++ firmware converts each machine vision detection into ISOBUS (CAN) messages that the ProStop-E system executes on the matching nozzle.</p>
       <p>Field tests validated the vision-to-ProStop-E communication chain and measured how travel speed affects detection-to-spray latency.</p>
       <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>C++</span><span>Arduino Mega 2560</span><span>Arduino Uno</span><span>Seeed CAN-BUS Shield</span><span>MCP2515</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>John Deere UTV</span><span>Latency testing</span></div>
       <video class="clip" src="pentair-test.mp4" controls muted playsinline loop preload="auto"></video>
