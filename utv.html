@@ -90,7 +90,36 @@ h2.sec{margin:28px 0 0;font:800 22px/1.2 var(--display);letter-spacing:0;text-tr
       <p>Field tests validated the vision-to-ProStop-E communication chain and measured how travel speed affects detection-to-spray latency.</p>
       <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>C++</span><span>Microcontrollers</span><span>Raspberry Pi 4</span><span>Seeed CAN-BUS Shield</span><span>Waveshare CAN HAT</span><span>IP65 enclosures</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>Implement control</span><span>John Deere UTV</span><span>Latency testing</span></div>
       <video class="clip" src="pentair-test.mp4" controls muted playsinline loop preload="auto"></video>
-      <h2 class="sec">ECU 1 · Non-ISOBUS controller</h2>
+      <h2 class="sec">ISOBUS-compliant ECU · Raspberry Pi</h2>
+      <p>A Raspberry Pi 4 Model B (quad-core, 8 GB) whose four USB ports connect up to four machine vision computers. A Waveshare 2-channel CAN HAT handles the bus: one channel goes to the tractor's ISOBUS / CAN bus through a 4-pin Deutsch connector, the second to a spare 4-pin Deutsch connector for any future CAN network. A DS3231 RTC on top of the HAT keeps time while the Pi is unpowered.</p>
+      <p>A 2-pin Deutsch power inlet feeds a 12 V → 5 V DC-DC converter for the Pi's USB-C input and a 12 V blower fan that cools the board. The unit is housed in an IP65 enclosure (6.2" × 3.5" × 2.4") with all cables leaving through a ½" cable gland.</p>
+      <div class="figs">
+        <figure class="fig">
+          <img src="ecu2-diagram.jpg" alt="ECU 2 wiring: Raspberry Pi 4 with Waveshare CAN HAT, DS3231 RTC, 12 V fan, 12 to 5 V converter, four USB outlets for machine vision, ISOBUS" loading="lazy">
+          <figcaption><b>Connectivity diagram.</b> 4 USB inputs from machine vision → Raspberry Pi 4 + 2-CH CAN HAT → ISOBUS, with RTC, fan and 12 → 5 V converter.</figcaption>
+        </figure>
+        <figure class="fig">
+          <img src="ecu2-enclosure.jpg" alt="Raspberry Pi with CAN HAT and blower fan inside a black IP65 box, and the closed box with cable gland" loading="lazy">
+          <figcaption><b>IP65 enclosure.</b> Pi, CAN HAT and cooling fan inside, sealed box with braided cable through the gland.</figcaption>
+        </figure>
+      </div>
+      <p class="sub">Hardware used</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Component</th><th>Brand</th><th>Qty</th></tr></thead>
+        <tbody>
+          <tr><td>Raspberry Pi 4 Model B, 8 GB</td><td>Raspberry Pi</td><td class="q">1</td></tr>
+          <tr><td>2-CH CAN HAT</td><td>Waveshare</td><td class="q">1</td></tr>
+          <tr><td>DS3231 RTC</td><td>Seeed Studio</td><td class="q">1</td></tr>
+          <tr><td>IP65 enclosure</td><td>Zulkit</td><td class="q">1</td></tr>
+          <tr><td>Cable gland</td><td>KUUQA</td><td class="q">1</td></tr>
+          <tr><td>Deutsch connector, 2-pin</td><td>Flytuo</td><td class="q">1</td></tr>
+          <tr><td>Deutsch connector, 4-pin</td><td>Flytuo</td><td class="q">2</td></tr>
+          <tr><td>DC-DC converter 12 V → 5 V</td><td>MEIRIYFA</td><td class="q">1</td></tr>
+          <tr><td>12 V cooling blower fan</td><td>GDSTIME</td><td class="q">1</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 class="sec">Non-ISOBUS ECU · Arduino</h2>
       <p>Two Arduino Mega 2560 boards. One talks to the machine vision system; the other carries a Seeed CAN-BUS Shield V2.0. The TX3 pin of the vision-side Mega is linked to RX0 of the CAN-side Mega through SPL-1 lever wire connectors, so each board can be unplugged for firmware uploads. The CAN-side Mega joins the tractor's ISOBUS / CAN bus through a 4-pin Deutsch connector.</p>
       <p>A 2-pin Deutsch connector feeds the barrel jack of the vision-side Mega, and its 5 V and ground are shared with the CAN-side Mega, so both boards run from a single power inlet. Everything sits in an IP65 enclosure (9.4" × 6.3" × 4.7") with all cables leaving through a ½" cable gland.</p>
       <div class="figs">
@@ -122,35 +151,6 @@ h2.sec{margin:28px 0 0;font:800 22px/1.2 var(--display);letter-spacing:0;text-tr
           <figcaption><b>Field version.</b> 3D-printed box housing the microcontrollers and CAN shield, with the 4×4 keypad on the lid, a DB9 CAN connector to the ISOBUS and a USB lead to the imaging system.</figcaption>
         </figure>
       </div>
-
-      <h2 class="sec">ECU 2 · ISOBUS controller</h2>
-      <p>A Raspberry Pi 4 Model B (quad-core, 8 GB) whose four USB ports connect up to four machine vision computers. A Waveshare 2-channel CAN HAT handles the bus: one channel goes to the tractor's ISOBUS / CAN bus through a 4-pin Deutsch connector, the second to a spare 4-pin Deutsch connector for any future CAN network. A DS3231 RTC on top of the HAT keeps time while the Pi is unpowered.</p>
-      <p>A 2-pin Deutsch power inlet feeds a 12 V → 5 V DC-DC converter for the Pi's USB-C input and a 12 V blower fan that cools the board. The unit is housed in an IP65 enclosure (6.2" × 3.5" × 2.4") with all cables leaving through a ½" cable gland.</p>
-      <div class="figs">
-        <figure class="fig">
-          <img src="ecu2-diagram.jpg" alt="ECU 2 wiring: Raspberry Pi 4 with Waveshare CAN HAT, DS3231 RTC, 12 V fan, 12 to 5 V converter, four USB outlets for machine vision, ISOBUS" loading="lazy">
-          <figcaption><b>Connectivity diagram.</b> 4 USB inputs from machine vision → Raspberry Pi 4 + 2-CH CAN HAT → ISOBUS, with RTC, fan and 12 → 5 V converter.</figcaption>
-        </figure>
-        <figure class="fig">
-          <img src="ecu2-enclosure.jpg" alt="Raspberry Pi with CAN HAT and blower fan inside a black IP65 box, and the closed box with cable gland" loading="lazy">
-          <figcaption><b>IP65 enclosure.</b> Pi, CAN HAT and cooling fan inside, sealed box with braided cable through the gland.</figcaption>
-        </figure>
-      </div>
-      <p class="sub">Hardware used</p>
-      <div class="tbl"><table>
-        <thead><tr><th>Component</th><th>Brand</th><th>Qty</th></tr></thead>
-        <tbody>
-          <tr><td>Raspberry Pi 4 Model B, 8 GB</td><td>Raspberry Pi</td><td class="q">1</td></tr>
-          <tr><td>2-CH CAN HAT</td><td>Waveshare</td><td class="q">1</td></tr>
-          <tr><td>DS3231 RTC</td><td>Seeed Studio</td><td class="q">1</td></tr>
-          <tr><td>IP65 enclosure</td><td>Zulkit</td><td class="q">1</td></tr>
-          <tr><td>Cable gland</td><td>KUUQA</td><td class="q">1</td></tr>
-          <tr><td>Deutsch connector, 2-pin</td><td>Flytuo</td><td class="q">1</td></tr>
-          <tr><td>Deutsch connector, 4-pin</td><td>Flytuo</td><td class="q">2</td></tr>
-          <tr><td>DC-DC converter 12 V → 5 V</td><td>MEIRIYFA</td><td class="q">1</td></tr>
-          <tr><td>12 V cooling blower fan</td><td>GDSTIME</td><td class="q">1</td></tr>
-        </tbody>
-      </table></div>
     </article>
   </section>
 
