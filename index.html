@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oussama Bessaad Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: single column, header band, projects, experience timeline, skills grid */
+:root{
+  --bg:#f3f5f1; --fg:#17201a; --muted:#5a665d; --line:#d5dbd3; --accent:#1f5d3a; --signal:#e8b10c;
+  --display:"Archivo",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121815;--fg:#e6ebe6;--muted:#9aa69e;--line:#2a332d;--accent:#6fc392;--signal:#f2c230;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121815;--fg:#e6ebe6;--muted:#9aa69e;--line:#2a332d;--accent:#6fc392;--signal:#f2c230;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-inline:16px;padding-block:40px}
+.wrap{max-width:760px;margin:0 auto;display:grid;gap:44px}
+.note{font:500 12px var(--mono);color:var(--muted);border:1px dashed var(--line);padding:6px 10px;justify-self:start}
+h1{font:800 clamp(34px,7vw,54px)/1.05 var(--display);margin:0;text-wrap:balance}
+h1 span{display:block;height:6px;width:64px;background:var(--signal);margin-top:14px}
+.role{color:var(--accent);font-weight:500;margin:12px 0 0}
+.intro{color:var(--muted);max-width:62ch;margin:8px 0 0}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.links a{color:var(--fg);text-decoration:none;border:1px solid var(--line);padding:6px 14px;font-size:14px}
+.links a:hover,.links a:focus-visible{border-color:var(--accent);color:var(--accent);outline:none}
+h2{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.item{border-top:1px solid var(--line);padding-block:20px;display:grid;gap:6px}
+.item h3{font:800 20px var(--display);margin:0}
+.meta{font:500 13px var(--mono);color:var(--accent)}
+.item p,.item li{margin:0;color:var(--muted)}
+.item ul{margin:4px 0 0;padding-left:18px;display:grid;gap:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tags span{font:500 12px var(--mono);background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);padding:2px 8px}
+.video{aspect-ratio:16/9;max-width:100%;background:color-mix(in srgb,var(--fg) 6%,transparent);display:grid;place-items:center;color:var(--muted);font:500 13px var(--mono);margin-top:8px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.skills div{min-width:0}
+.skills b{display:block;font:800 15px var(--display);margin-bottom:2px}
+.skills p{margin:0;color:var(--muted);font-size:15px}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>Oussama Bessaad<span></span></h1>
+    <p class="role">Mechatronics &amp; Embedded Systems Engineer · Precision Agriculture</p>
+    <p class="intro">I build embedded systems for agricultural machinery: bare-metal and RTOS firmware, ISOBUS / CAN integration, ECUs, and precision spraying systems mounted and tested on real equipment.</p>
+    <div class="links">
+      <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#contact">Resume (PDF)</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Projects</h2>
+    <article class="item">
+      <h3>See &amp; Spray precision sprayer</h3>
+      <p>Mounted and commissioned a camera-based spot-spraying system on a CASE IH commercial boom sprayer: cameras, industrial computers, CAN modules and rate-controller hardware across a 60-nozzle boom.</p>
+      <div class="tags"><span>ISOBUS</span><span>CAN bus</span><span>Machine vision</span><span>Raven</span><span>GPS RTK</span></div>
+      <div class="video">▶ Field video goes here</div>
+    </article>
+    <article class="item">
+      <h3>Ag drone: flight control &amp; sensors</h3>
+      <p>Flight control, camera and GPS-RTK integration, with CAN, ISOBUS and UART links between system components.</p>
+      <div class="tags"><span>STM32</span><span>FreeRTOS</span><span>GPS RTK</span><span>UART</span></div>
+    </article>
+    <article class="item">
+      <h3>Qt HMI for real-time embedded systems</h3>
+      <p>Operator interface for a real-time embedded controller, built in Qt.</p>
+      <div class="tags"><span>Qt</span><span>C++</span><span>Embedded Linux</span></div>
+    </article>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <article class="item">
+      <h3>Embedded Systems Engineer</h3>
+      <span class="meta">AIES Research Group, Dalhousie · Truro, NS · Jan 2025 – now</span>
+      <ul>
+        <li>Precision spraying systems on commercial sprayers (CASE IH, Raven, Pentair)</li>
+        <li>ISOBUS / CAN connectivity, telematics, GPS RTK data management</li>
+      </ul>
+    </article>
+    <article class="item">
+      <h3>Automation Engineering Consultant</h3>
+      <span class="meta">Coatex Technology · Dartmouth, NS · Sep 2025 – now</span>
+      <ul>
+        <li>Ladder logic for Siemens PLCs; sensor integration and motion control</li>
+        <li>Debugging and optimizing production lines</li>
+      </ul>
+    </article>
+    <article class="item">
+      <h3>Embedded Software Engineer</h3>
+      <span class="meta">STMicroelectronics</span>
+      <ul>
+        <li>Ethernet APIs for STM32 microcontrollers</li>
+        <li>Ported secure communication / file-transfer libraries to the STM32 ecosystem</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><b>Languages</b><p>C, C++, Rust, Python, Assembly, ST text</p></div>
+      <div><b>Platforms</b><p>STM32, ESP32, ARM Cortex-M, Raspberry Pi, FreeRTOS, Embedded Linux</p></div>
+      <div><b>Protocols</b><p>ISOBUS, CAN bus, Ethernet, SPI, UART, BLE, Zigbee</p></div>
+      <div><b>Design</b><p>Electrical drawing, PCB design, SolidWorks, CATIA</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <article class="item">
+      <h3>M.Sc. Precision Agriculture &amp; Agricultural Systems</h3>
+      <span class="meta">Dalhousie University · agricultural machinery focus</span>
+    </article>
+    <article class="item">
+      <h3>Bachelor's in Mechatronics Engineering</h3>
+      <span class="meta">German-accredited program</span>
+    </article>
+  </section>
+
+  <footer id="contact">Contact: Oussama.Bessaad@dal.ca · Truro, Nova Scotia</footer>
+</div>
+</body>
+</html>
