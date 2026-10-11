@@ -74,7 +74,7 @@ h2.sec{margin:28px 0 0;font:800 22px/1.2 var(--display);letter-spacing:0;text-tr
 .tbl td.n,.tbl td.q{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px}
 .tbl tr:last-child td{border-bottom:0}
 .fig.wide{margin-top:8px}
-.fig.wide img{aspect-ratio:auto;object-fit:contain}
+.fig.wide img{aspect-ratio:auto;object-fit:contain;max-width:640px;margin-inline:auto}
 </style>
 </head>
 <body>
@@ -88,8 +88,13 @@ h2.sec{margin:28px 0 0;font:800 22px/1.2 var(--display);letter-spacing:0;text-tr
       <p>Equipped a John Deere Gator UTV with a spray implement fitted with Pentair Hypro ProStop-E electric nozzle bodies for individual nozzle on/off control, driven by a machine vision camera. A color-segmentation model detects orange targets on the ground.</p>
       <p><strong>Built the bridge between the machine vision system and the implement:</strong> C++ firmware converts each machine vision detection into ISOBUS (CAN) messages that the ProStop-E implement controller executes on the matching nozzle.</p>
       <p>Field tests validated the vision-to-ProStop-E communication chain and measured how travel speed affects detection-to-spray latency.</p>
-      <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>C++</span><span>Microcontrollers</span><span>Raspberry Pi 4</span><span>Seeed CAN-BUS Shield</span><span>Waveshare CAN HAT</span><span>IP65 enclosures</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>Implement control</span><span>John Deere UTV</span><span>Latency testing</span></div>
+      <div class="tags"><span>CAN bus</span><span>ISOBUS</span><span>C++</span><span>Microcontrollers</span><span>Raspberry Pi 4</span><span>Seeed CAN-BUS Shield</span><span>Waveshare CAN HAT</span><span>IP65 enclosures</span><span>Machine vision</span><span>Hypro ProStop-E</span><span>StarFire 6000 GPS</span><span>Sony RX0 II</span><span>Nuvo-9160GC IPC</span><span>Implement control</span><span>John Deere UTV</span><span>Latency testing</span></div>
       <video class="clip" src="pentair-test.mp4" controls muted playsinline loop preload="auto"></video>
+      <h2 class="sec">System overview</h2>
+      <figure class="fig wide">
+        <img src="utv-system.jpg" alt="John Deere Gator UTV with arrows to its components: Raspberry Pi 4 ECU, John Deere StarFire 6000 GPS receiver, Pentair system, Sony RX0 II camera and Neousys Nuvo-9160GC industrial PC" loading="lazy">
+        <figcaption><b>Platform layout.</b> Sony RX0 II camera feeding a Neousys Nuvo-9160GC industrial PC for machine vision, a Raspberry Pi 4 ECU as the communication bridge between machine vision and the implement, the Pentair ProStop-E system on the boom, and a John Deere StarFire 6000 receiver for GPS.</figcaption>
+      </figure>
       <h2 class="sec">ISOBUS-compliant ECU · Raspberry Pi</h2>
       <p>A Raspberry Pi 4 Model B (quad-core, 8 GB) whose four USB ports connect up to four machine vision computers. A Waveshare 2-channel CAN HAT handles the bus: one channel goes to the tractor's ISOBUS / CAN bus through a 4-pin Deutsch connector, the second to a spare 4-pin Deutsch connector for any future CAN network. A DS3231 RTC on top of the HAT keeps time while the Pi is unpowered.</p>
       <p>A 2-pin Deutsch power inlet feeds a 12 V → 5 V DC-DC converter for the Pi's USB-C input and a 12 V blower fan that cools the board. The unit is housed in an IP65 enclosure (6.2" × 3.5" × 2.4") with all cables leaving through a ½" cable gland.</p>
